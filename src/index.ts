@@ -1,10 +1,12 @@
 import { component } from "@prismatic-io/spectral";
 import sendSms from "./actions/sendSms";
+import ttsCall from "./actions/ttsCall";
 import { apiKey } from "./connections";
 
 export default component({
   actions: {
     sendSms,
+    ttsCall,
   },
   connections: [apiKey],
   display: {

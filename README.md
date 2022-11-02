@@ -2,6 +2,10 @@
 
 Official custom component for [prismatic](https://prismatic.io/).
 
+## Implemented endpoints
+- SMS
+- Text-To-Speech Calling
+
 ## Support
 
 Need help? Feel free to [contact us](https://www.sms77.io/en/company/contact).

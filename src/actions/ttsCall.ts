@@ -1,43 +1,38 @@
 import { action, util } from "@prismatic-io/spectral";
-import { SmsJsonResponse, SmsParams } from "sms77-client";
+import { VoiceParams, VoiceJsonResponse } from "sms77-client";
 import { createSevenClient } from "../client";
 import { connectionInput, text, to } from "../inputs";
 
 interface Response {
-  data: SmsJsonResponse;
+  data: VoiceJsonResponse;
 }
 
 const examplePayload: Response = {
   data: {
-    success: "100",
-    total_price: 0,
     balance: 112.57,
-    debug: "true",
-    sms_type: "direct",
+    debug: true,
     messages: [
       {
-        id: null,
-        sender: "491771783130",
-        recipient: "491771783130",
-        text: "hi",
-        encoding: "gsm",
-        label: null,
-        parts: 1,
-        udh: null,
-        is_binary: false,
-        price: 0,
-        success: true,
         error: null,
         error_text: null,
+        id: null,
+        price: 0,
+        recipient: "491771783130",
+        sender: "491771783130",
+        success: true,
+        text: "hi",
       },
     ],
+    success: "100",
+    total_price: 0,
   },
 };
 
-export const sendSms = action({
+export const ttsCall = action({
   display: {
-    label: "Send SMS",
-    description: "Dispatch an SMS via seven",
+    label: "Make Text-To-Speech Call",
+    description:
+      "Convert text to speech, call given phone number and read the message out loud.",
   },
   examplePayload,
   inputs: {
@@ -49,15 +44,16 @@ export const sendSms = action({
     const client = createSevenClient({
       connection: params.sevenConnection,
     });
-    const smsParams: SmsParams = {
+    const voiceParams: VoiceParams = {
       json: true,
       text: util.types.toString(params.text),
       to: util.types.toString(params.to),
     };
+
     return {
-      data: await client.sms(smsParams),
+      data: await client.voice(voiceParams),
     };
   },
 });
 
-export default sendSms;
+export default ttsCall;

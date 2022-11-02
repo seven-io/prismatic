@@ -8,12 +8,12 @@
     "build": "npm run format && npm run lint && webpack",
     "check-format": "prettier --check './src/**/*.{js,jsx,ts,tsx,css,html,json,scss}' 'documentation/*.mdx'",
     "format": "npm run lint-fix && prettier --loglevel error --write './src/**/*.{js,jsx,ts,tsx,css,html,json,scss}' 'documentation/*.mdx'",
-    "lint": "eslint --cache --quiet --ext .ts,.js --ignore-pattern '*testapp*' .",
-    "lint-fix": "eslint --cache --fix --quiet --ext .ts,.js --ignore-pattern '*testapp*' .",
+    "lint": "eslint --cache --quiet --ext .ts,.js .",
+    "lint-fix": "eslint --cache --fix --quiet --ext .ts,.js .",
     "test": "jest --maxWorkers=4"
   },
   "dependencies": {
-    "@prismatic-io/spectral": "^7.2.1",
+    "@prismatic-io/spectral": "^7.3.1",
     "sms77-client": "^2.24.0"
   },
   "author": "seven communications GmbH & Co. KG <support@seven.io> (https://www.seven.io)",
