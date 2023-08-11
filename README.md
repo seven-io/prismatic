@@ -1,4 +1,4 @@
-![](https://seven.io/seven_outline_white.svg "seven Logo")
+![](https://www.seven.io/wp-content/uploads/Logo.svg "seven Logo")
 
 Official custom component for [prismatic](https://prismatic.io/).
 
@@ -8,6 +8,6 @@ Official custom component for [prismatic](https://prismatic.io/).
 
 ## Support
 
-Need help? Feel free to [contact us](https://www.sms77.io/en/company/contact).
+Need help? Feel free to [contact us](https://www.seven.io/en/company/contact).
 
 [![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)
