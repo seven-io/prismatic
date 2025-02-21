@@ -1,6 +1,10 @@
-<img src="https://www.seven.io/wp-content/uploads/Logo.svg" width="250" />
+<img src="https://www.seven.io/wp-content/uploads/Logo.svg" width="250"  alt=''/>
 
 Official custom component for [prismatic](https://prismatic.io/).
+
+## Publishing
+
+See [prismatic documentation](https://prismatic.io/docs/custom-connectors/publishing/) for more information.
 
 ## Implemented endpoints
 - SMS
