@@ -7,8 +7,9 @@ Official custom component for [prismatic](https://prismatic.io/).
 See [prismatic documentation](https://prismatic.io/docs/custom-connectors/publishing/) for more information.
 
 ## Implemented endpoints
-- SMS
-- Text-To-Speech Calling
+- Send SMS
+- Make Text-To-Speech Calls
+- Send RCS
 
 ## Support
 
