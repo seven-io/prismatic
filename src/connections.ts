@@ -1,7 +1,10 @@
 import { connection } from "@prismatic-io/spectral";
 
 export const apiKey = connection({
-  comments: "Authenticates requests to Seven using an API Key",
+  display: {
+    description: "Authenticates requests to Seven using an API Key",
+    label: "Seven Credentials",
+  },
   inputs: {
     apiKey: {
       comments: "Your Seven API Key",
@@ -14,7 +17,6 @@ export const apiKey = connection({
     },
   },
   key: "apiKey",
-  label: "Seven Credentials",
 });
 
 export default [apiKey];

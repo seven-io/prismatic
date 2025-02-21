@@ -14,7 +14,7 @@ describe("createSevenClient", () => {
   test("throws error if invalid credentials provided", () => {
     try {
       const connection = createConnection(
-        { inputs: {}, key: "fakeConnection", label: "" },
+        { inputs: {}, key: "fakeConnection", display: {description: "", label: ""} },
         {}
       );
       createSevenClient({ connection });

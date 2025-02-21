@@ -1,10 +1,10 @@
 import { action, util } from "@prismatic-io/spectral";
-import { VoiceParams, VoiceJsonResponse } from "sms77-client";
+import { VoiceParams, VoiceResource, VoiceResponse } from "@seven.io/client";
 import { createSevenClient } from "../client";
 import { connectionInput, text, to } from "../inputs";
 
 interface Response {
-  data: VoiceJsonResponse;
+  data: VoiceResponse;
 }
 
 const examplePayload: Response = {
@@ -40,18 +40,17 @@ export const ttsCall = action({
     text,
     to,
   },
-  perform: async (context, params) => {
+  perform: async (_context, params) => {
     const client = createSevenClient({
       connection: params.sevenConnection,
     });
     const voiceParams: VoiceParams = {
-      json: true,
       text: util.types.toString(params.text),
       to: util.types.toString(params.to),
     };
 
     return {
-      data: await client.voice(voiceParams),
+      data: await (new VoiceResource(client)).dispatch(voiceParams),
     };
   },
 });

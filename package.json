@@ -1,9 +1,9 @@
 {
-  "name": "@seven/prismatic",
+  "name": "@seven.io/prismatic",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Seven Component for Prismatic",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "build": "npm run format && npm run lint && webpack",
     "check-format": "prettier --check './src/**/*.{js,jsx,ts,tsx,css,html,json,scss}' 'documentation/*.mdx'",
@@ -13,24 +13,24 @@
     "test": "jest --maxWorkers=4"
   },
   "dependencies": {
-    "@prismatic-io/spectral": "^7.6.8",
-    "sms77-client": "^2.26.0"
+    "@prismatic-io/spectral": "^10.3.11",
+    "@seven.io/client": "^4.3.0"
   },
   "author": "seven communications GmbH & Co. KG <support@seven.io> (https://www.seven.io)",
   "license": "MIT",
   "devDependencies": {
-    "@prismatic-io/eslint-config-spectral": "^1.0.0",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^14.18.54",
-    "copy-webpack-plugin": "^6.4.1",
-    "eslint": "^6.8.0",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.1.6",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4",
-    "ts-jest": "^29.1.1",
-    "prettier": "^2.8.8",
-    "jest": "^29.6.2"
+    "@prismatic-io/eslint-config-spectral": "^2.0.2",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^14.18.63",
+    "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^9.20.1",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "ts-jest": "^29.2.5",
+    "prettier": "^3.5.1",
+    "jest": "^29.7.0"
   },
   "eslintConfig": {
     "root": true,

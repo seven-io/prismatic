@@ -1,36 +1,36 @@
 import { action, util } from "@prismatic-io/spectral";
-import { SmsJsonResponse, SmsParams } from "sms77-client";
+import { SmsResponse, SmsResource, SmsParams } from "@seven.io/client";
 import { createSevenClient } from "../client";
 import { connectionInput, text, to } from "../inputs";
 
 interface Response {
-  data: SmsJsonResponse;
+  data: SmsResponse;
 }
 
 const examplePayload: Response = {
   data: {
-    success: "100",
-    total_price: 0,
     balance: 112.57,
     debug: "true",
-    sms_type: "direct",
     messages: [
       {
-        id: null,
-        sender: "491771783130",
-        recipient: "491771783130",
-        text: "hi",
         encoding: "gsm",
-        label: null,
-        parts: 1,
-        udh: null,
-        is_binary: false,
-        price: 0,
-        success: true,
         error: null,
         error_text: null,
+        id: null,
+        is_binary: false,
+        label: null,
+        parts: 1,
+        price: 0,
+        recipient: "491771783130",
+        sender: "491771783130",
+        success: true,
+        text: "hi",
+        udh: null,
       },
     ],
+    sms_type: "direct",
+    success: "100",
+    total_price: 0,
   },
 };
 
@@ -45,17 +45,16 @@ export const sendSms = action({
     text,
     to,
   },
-  perform: async (context, params) => {
+  perform: async (_context, params) => {
     const client = createSevenClient({
       connection: params.sevenConnection,
     });
     const smsParams: SmsParams = {
-      json: true,
       text: util.types.toString(params.text),
-      to: util.types.toString(params.to),
+      to: util.types.toString(params.to).split(','),
     };
     return {
-      data: await client.sms(smsParams),
+      data: await (new SmsResource(client)).dispatch(smsParams),
     };
   },
 });

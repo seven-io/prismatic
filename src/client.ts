@@ -1,11 +1,11 @@
-import Sms77Client from "sms77-client";
+import {Client} from "@seven.io/client";
 import { Connection, ConnectionError, util } from "@prismatic-io/spectral";
 
 interface ClientProps {
   connection: Connection;
 }
 
-export const createSevenClient = ({ connection }: ClientProps): Sms77Client => {
+export const createSevenClient = ({ connection }: ClientProps): Client => {
   if (connection.key !== "apiKey") {
     throw new ConnectionError(
       connection,
@@ -14,5 +14,5 @@ export const createSevenClient = ({ connection }: ClientProps): Sms77Client => {
   }
 
   const apiKey = util.types.toString(connection.fields.apiKey).trim();
-  return new Sms77Client(apiKey);
+  return new Client({apiKey, sentWith: 'Prismatic'});
 };

@@ -17,5 +17,4 @@ export default component({
   },
   documentationUrl: "https://docs.seven.io/third-party-solutions/prismatic/",
   key: "seven",
-  public: true,
 });
